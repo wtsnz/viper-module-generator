@@ -1,29 +1,41 @@
 //
-// Created by AUTHOR
-// Copyright (c) YEAR AUTHOR. All rights reserved.
+//  VIPERWireFrame.swift
+//
+//  Created by AUTHOR.
+//  Copyright © YEAR COMPANY. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class VIPERWireFrame: VIPERWireFrameProtocol
-{
-    class func presentVIPERModule(fromView view: AnyObject)
-    {
-        // Generating module components
-        var view: VIPERViewProtocol = VIPERView()
-        var presenter: protocol<VIPERPresenterProtocol, VIPERInteractorOutputProtocol> = VIPERPresenter()
-        var interactor: VIPERInteractorInputProtocol = VIPERInteractor()
-        var APIDataManager: VIPERAPIDataManagerInputProtocol = VIPERAPIDataManager()
-        var localDataManager: VIPERLocalDataManagerInputProtocol = VIPERLocalDataManager()
-        var wireFrame: VIPERWireFrameProtocol = VIPERWireFrame()
+class VIPERWireFrame: VIPERWireFrameProtocol {
+    
+    class func createVIPERModule() -> UIViewController {
+
+        let presenter: PostListPresenterProtocol & PostListInteractorOutputProtocol = PostListPresenter()
+        let interactor: PostListInteractorInputProtocol & PostListRemoteDataManagerOutputProtocol = PostListInteractor()
+        let localDataManager: PostListLocalDataManagerInputProtocol = PostListLocalDataManager()
+        let remoteDataManager: PostListRemoteDataManagerInputProtocol = PostListRemoteDataManager()
+        let wireFrame: PostListWireFrameProtocol = PostListWireFrame()
         
-        // Connecting
         view.presenter = presenter
         presenter.view = view
         presenter.wireFrame = wireFrame
         presenter.interactor = interactor
         interactor.presenter = presenter
-        interactor.APIDataManager = APIDataManager
         interactor.localDatamanager = localDataManager
+        interactor.remoteDatamanager = remoteDataManager
+        remoteDataManager.remoteRequestHandler = interactor
+        
+        return navController
     }
+    
+    /*
+    func presentNextScreen(from view: NextViewProtocol) {
+        let nextViewController = NextWireFrame.createNextModule()
+        
+        if let sourceView = view as? UIViewController {
+           sourceView.navigationController?.pushViewController(nextViewController, animated: true)
+        }
+    }
+    */
 }

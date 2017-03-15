@@ -1,15 +1,25 @@
 //
-// Created by AUTHOR
-// Copyright (c) YEAR AUTHOR. All rights reserved.
+//  VIPERPresenter.swift
+//
+//  Created by AUTHOR.
+//  Copyright © YEAR COMPANY. All rights reserved.
 //
 
 import Foundation
 
-class VIPERPresenter: VIPERPresenterProtocol, VIPERInteractorOutputProtocol
-{
+class VIPERPresenter: VIPERPresenterProtocol {
+    
+    // MARK: - Properties
+    
     weak var view: VIPERViewProtocol?
     var interactor: VIPERInteractorInputProtocol?
     var wireFrame: VIPERWireFrameProtocol?
-    
-    init() {}
+
 }
+
+// MARK: - VIPERInteractorOutputProtocol
+
+extension VIPERPresenter: VIPERInteractorOutputProtocol {
+	
+}
+

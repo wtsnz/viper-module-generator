@@ -1,70 +1,60 @@
 //
-// Created by AUTHOR
-// Copyright (c) YEAR AUTHOR. All rights reserved.
+//  VIPERProtocols.swift
+//
+//  Created by AUTHOR.
+//  Copyright © YEAR COMPANY. All rights reserved.
 //
 
 import Foundation
 
-protocol VIPERViewProtocol: class
-{
+protocol VIPERViewProtocol: class {
+
     var presenter: VIPERPresenterProtocol? { get set }
-    /**
-    * Add here your methods for communication PRESENTER -> VIEW
-    */
+    
+    // PRESENTER -> VIEW
 }
 
-protocol VIPERWireFrameProtocol: class
-{
-    class func presentVIPERModule(fromView view: AnyObject)
-    /**
-    * Add here your methods for communication PRESENTER -> WIREFRAME
-    */
+protocol VIPERWireFrameProtocol: class {
+        
+    static func createVIPERModule() -> UIViewController
+    
+    // PRESENTER -> WIREFRAME
 }
 
-protocol VIPERPresenterProtocol: class
-{
+protocol VIPERPresenterProtocol: class {
     var view: VIPERViewProtocol? { get set }
     var interactor: VIPERInteractorInputProtocol? { get set }
     var wireFrame: VIPERWireFrameProtocol? { get set }
-    /**
-    * Add here your methods for communication VIEW -> PRESENTER
-    */
+    
+    // VIEW -> PRESENTER
 }
 
-protocol VIPERInteractorOutputProtocol: class
-{
-    /**
-    * Add here your methods for communication INTERACTOR -> PRESENTER
-    */
+protocol VIPERInteractorOutputProtocol: class {
+    // INTERACTOR -> PRESENTER
 }
 
-protocol VIPERInteractorInputProtocol: class
-{
+protocol VIPERInteractorInputProtocol: class {
     var presenter: VIPERInteractorOutputProtocol? { get set }
-    var APIDataManager: VIPERAPIDataManagerInputProtocol? { get set }
     var localDatamanager: VIPERLocalDataManagerInputProtocol? { get set }
-    /**
-    * Add here your methods for communication PRESENTER -> INTERACTOR
-    */
+    var remoteDatamanager: VIPERRemoteDataManagerInputProtocol? { get set }
+    
+    // PRESENTER -> INTERACTOR
 }
 
-protocol VIPERDataManagerInputProtocol: class
-{
-    /**
-    * Add here your methods for communication INTERACTOR -> DATAMANAGER
-    */
+protocol VIPERDataManagerInputProtocol: class {
+    // INTERACTOR -> DATAMANAGER
 }
 
-protocol VIPERAPIDataManagerInputProtocol: class
-{
-    /**
-    * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
-    */
+protocol VIPERRemoteDataManagerInputProtocol: class {
+    var remoteRequestHandler: VIPERRemoteDataManagerOutputProtocol? { get set }
+    
+    // INTERACTOR -> REMOTEDATAMANAGER
 }
 
-protocol VIPERLocalDataManagerInputProtocol: class
-{
-    /**
-    * Add here your methods for communication INTERACTOR -> LOCALDATAMANAGER
-    */
+protocol VIPERRemoteDataManagerOutputProtocol: class {
+    // REMOTEDATAMANAGER -> INTERACTOR
+}
+
+protocol VIPERLocalDataManagerInputProtocol: class {
+     // INTERACTOR -> LOCALDATAMANAGER
 }

@@ -8,17 +8,23 @@
 import Foundation
 import UIKit
 
-class VIPERView: UIViewController, VIPERViewProtocol {
+class VIPERView: UIViewController {
     
-    // MARK: Properties
+    // MARK: - Properties
 
     var presenter: VIPERPresenterProtocol?
     
-    // MARK: UIViewController
+    // MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    // MARK: VIPERViewProtocol
+}
+
+// MARK: - VIPERViewProtocol
+
+extension VIPERView: VIPERViewProtocol {
+
+
 }
