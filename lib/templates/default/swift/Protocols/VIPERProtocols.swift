@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol VIPERViewProtocol: class {
 
@@ -35,8 +36,8 @@ protocol VIPERInteractorOutputProtocol: class {
 
 protocol VIPERInteractorInputProtocol: class {
     var presenter: VIPERInteractorOutputProtocol? { get set }
-    var localDatamanager: VIPERLocalDataManagerInputProtocol? { get set }
-    var remoteDatamanager: VIPERRemoteDataManagerInputProtocol? { get set }
+    var localDataManager: VIPERLocalDataManagerInputProtocol? { get set }
+    var remoteDataManager: VIPERRemoteDataManagerInputProtocol? { get set }
     
     // PRESENTER -> INTERACTOR
 }

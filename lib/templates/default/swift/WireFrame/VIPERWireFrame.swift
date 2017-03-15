@@ -11,8 +11,9 @@ class VIPERWireFrame: VIPERWireFrameProtocol {
     
     class func createVIPERModule() -> UIViewController {
 
+        let view: VIPERViewProtocol = VIPERView()
         let presenter: VIPERPresenterProtocol & VIPERInteractorOutputProtocol = VIPERPresenter()
-        let interactor: VIPERInteractorInputProtocol & VIPERRemoteDataManagerOutputProtocol = VIPERInteractor()
+        let interactor: VIPERInteractorInputProtocol & VIPERRemoteDataManagerOutputProtocol & VIPERLocalDataManagerOutputProtocol = VIPERInteractor()
         let localDataManager: VIPERLocalDataManagerInputProtocol = VIPERLocalDataManager()
         let remoteDataManager: VIPERRemoteDataManagerInputProtocol = VIPERRemoteDataManager()
         let wireFrame: VIPERWireFrameProtocol = VIPERWireFrame()
@@ -22,11 +23,11 @@ class VIPERWireFrame: VIPERWireFrameProtocol {
         presenter.wireFrame = wireFrame
         presenter.interactor = interactor
         interactor.presenter = presenter
-        interactor.localDatamanager = localDataManager
-        interactor.remoteDatamanager = remoteDataManager
+        interactor.localDataManager = localDataManager
+        interactor.remoteDataManager = remoteDataManager
         remoteDataManager.remoteRequestHandler = interactor
         
-        return navController
+        return view as! UIViewController
     }
     
     /*
