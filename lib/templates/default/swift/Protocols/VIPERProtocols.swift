@@ -41,10 +41,6 @@ protocol VIPERInteractorInputProtocol: class {
     // PRESENTER -> INTERACTOR
 }
 
-protocol VIPERDataManagerInputProtocol: class {
-    // INTERACTOR -> DATAMANAGER
-}
-
 protocol VIPERRemoteDataManagerInputProtocol: class {
     var remoteRequestHandler: VIPERRemoteDataManagerOutputProtocol? { get set }
     
@@ -56,5 +52,11 @@ protocol VIPERRemoteDataManagerOutputProtocol: class {
 }
 
 protocol VIPERLocalDataManagerInputProtocol: class {
+    var localRequestHandler: VIPERLocalDataManagerOutputProtocol? { get set }
+
      // INTERACTOR -> LOCALDATAMANAGER
+}
+
+protocol VIPERLocalDataManagerOutputProtocol: class {
+    // LOCALDATAMANAGER -> INTERACTOR
 }
