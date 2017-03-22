@@ -11,7 +11,7 @@ class VIPERPresenter: VIPERPresenterProtocol {
     
     // MARK: - Properties
     
-    weak var view: VIPERViewProtocol?
+    weak var viewController: VIPERViewControllerProtocol?
     var interactor: VIPERInteractorInputProtocol?
     var wireFrame: VIPERWireFrameProtocol?
 

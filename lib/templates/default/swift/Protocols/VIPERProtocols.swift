@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol VIPERViewProtocol: class {
+protocol VIPERViewControllerProtocol: class {
 
     var presenter: VIPERPresenterProtocol? { get set }
     
@@ -23,7 +23,7 @@ protocol VIPERWireFrameProtocol: class {
 }
 
 protocol VIPERPresenterProtocol: class {
-    var view: VIPERViewProtocol? { get set }
+    var viewController: VIPERViewControllerProtocol? { get set }
     var interactor: VIPERInteractorInputProtocol? { get set }
     var wireFrame: VIPERWireFrameProtocol? { get set }
     
