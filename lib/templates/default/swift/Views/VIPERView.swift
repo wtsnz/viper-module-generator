@@ -16,4 +16,11 @@ class VIPERView: UIView/*, RootView */ {
         super.init(frame: CGRect.zero)
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func setupAutoLayoutContraints(_ parentViewController: UIViewController?) {
+        
+    }
 }
