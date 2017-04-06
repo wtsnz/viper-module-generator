@@ -20,6 +20,9 @@ class VIPERViewController: UIViewController /* BaseViewController<VIPERView> */ 
         super.viewDidLoad()
     }
     
+    deinit {
+        print("Deinit \(self)")
+    }
 }
 
 // MARK: - VIPERViewControllerProtocol

@@ -13,10 +13,13 @@ class VIPERInteractor: VIPERInteractorInputProtocol {
     
     // MARK: - VIPERInteractorInputProtocol    
 
-    var presenter: VIPERInteractorOutputProtocol?
+    weak var presenter: VIPERInteractorOutputProtocol?
     var localDataManager: VIPERLocalDataManagerInputProtocol?
     var remoteDataManager: VIPERRemoteDataManagerInputProtocol?
-        
+    
+    deinit {
+        print("Deinit \(self)")
+    }
 }
 
 // MARK: - VIPERRemoteDataManagerOuputProtocol    

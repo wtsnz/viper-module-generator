@@ -9,7 +9,12 @@ import Foundation
 
 class VIPERLocalDataManager: VIPERLocalDataManagerInputProtocol {
 
-	var localRequestHandler: VIPERLocalDataManagerOutputProtocol?
+	weak var localRequestHandler: VIPERLocalDataManagerOutputProtocol?
 
     init() {}
+
+
+    deinit {
+        print("Deinit \(self)")
+    }
 }

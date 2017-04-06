@@ -23,7 +23,7 @@ protocol VIPERWireFrameProtocol: class {
 }
 
 protocol VIPERPresenterProtocol: class {
-    var viewController: VIPERViewControllerProtocol? { get set }
+    weak var viewController: VIPERViewControllerProtocol? { get set }
     var interactor: VIPERInteractorInputProtocol? { get set }
     var wireFrame: VIPERWireFrameProtocol? { get set }
     
@@ -35,7 +35,7 @@ protocol VIPERInteractorOutputProtocol: class {
 }
 
 protocol VIPERInteractorInputProtocol: class {
-    var presenter: VIPERInteractorOutputProtocol? { get set }
+    weak var presenter: VIPERInteractorOutputProtocol? { get set }
     var localDataManager: VIPERLocalDataManagerInputProtocol? { get set }
     var remoteDataManager: VIPERRemoteDataManagerInputProtocol? { get set }
     
@@ -43,7 +43,7 @@ protocol VIPERInteractorInputProtocol: class {
 }
 
 protocol VIPERRemoteDataManagerInputProtocol: class {
-    var remoteRequestHandler: VIPERRemoteDataManagerOutputProtocol? { get set }
+    weak var remoteRequestHandler: VIPERRemoteDataManagerOutputProtocol? { get set }
     
     // INTERACTOR -> REMOTEDATAMANAGER
 }
@@ -53,7 +53,7 @@ protocol VIPERRemoteDataManagerOutputProtocol: class {
 }
 
 protocol VIPERLocalDataManagerInputProtocol: class {
-    var localRequestHandler: VIPERLocalDataManagerOutputProtocol? { get set }
+    weak var localRequestHandler: VIPERLocalDataManagerOutputProtocol? { get set }
 
      // INTERACTOR -> LOCALDATAMANAGER
 }

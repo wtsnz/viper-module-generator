@@ -39,4 +39,8 @@ class VIPERWireFrame: VIPERWireFrameProtocol {
         }
     }
     */
+
+    deinit {
+        print("Deinit \(self)")
+    }
 }

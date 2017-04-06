@@ -9,7 +9,12 @@ import Foundation
 
 class VIPERRemoteDataManager: VIPERRemoteDataManagerInputProtocol {
 
-    var remoteRequestHandler: VIPERRemoteDataManagerOutputProtocol?
+    weak var remoteRequestHandler: VIPERRemoteDataManagerOutputProtocol?
 
     init() {}
+
+
+   	deinit {
+        print("Deinit \(self)")
+    }
 }

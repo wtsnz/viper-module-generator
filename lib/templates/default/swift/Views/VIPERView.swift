@@ -23,4 +23,8 @@ class VIPERView: UIView/*, RootView */ {
     public func setupAutoLayoutContraints(_ parentViewController: UIViewController?) {
         
     }
+
+    deinit {
+        print("Deinit \(self)")
+    }
 }

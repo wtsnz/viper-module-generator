@@ -15,6 +15,9 @@ class VIPERPresenter: VIPERPresenterProtocol {
     var interactor: VIPERInteractorInputProtocol?
     var wireFrame: VIPERWireFrameProtocol?
 
+    deinit {
+        print("Deinit \(self)")
+    }
 }
 
 // MARK: - VIPERInteractorOutputProtocol
