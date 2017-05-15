@@ -1,5 +1,5 @@
 //
-//  VIPERWireFrame.swift
+//  VIPERWireframe.swift
 //
 //  Created by AUTHOR.
 //  Copyright © YEAR COMPANY. All rights reserved.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VIPERWireFrame: VIPERWireFrameProtocol {
+class VIPERWireframe: VIPERWireframeProtocol {
     
     class func createVIPERModule() -> UIViewController {
 
@@ -16,11 +16,11 @@ class VIPERWireFrame: VIPERWireFrameProtocol {
         let interactor: VIPERInteractorInputProtocol & VIPERRemoteDataManagerOutputProtocol & VIPERLocalDataManagerOutputProtocol = VIPERInteractor()
         let localDataManager: VIPERLocalDataManagerInputProtocol = VIPERLocalDataManager()
         let remoteDataManager: VIPERRemoteDataManagerInputProtocol = VIPERRemoteDataManager()
-        let wireFrame: VIPERWireFrameProtocol = VIPERWireFrame()
+        let wireframe: VIPERWireframeProtocol = VIPERWireframe()
         
         viewController.presenter = presenter
         presenter.viewController = viewController
-        presenter.wireFrame = wireFrame
+        presenter.wireframe = wireframe
         presenter.interactor = interactor
         interactor.presenter = presenter
         interactor.localDataManager = localDataManager
@@ -32,7 +32,7 @@ class VIPERWireFrame: VIPERWireFrameProtocol {
     
     /*
     func presentNextScreen(from view: NextViewProtocol) {
-        let nextViewController = NextWireFrame.createNextModule()
+        let nextViewController = NextWireframe.createNextModule()
         
         if let sourceView = view as? UIViewController {
            sourceView.navigationController?.pushViewController(nextViewController, animated: true)

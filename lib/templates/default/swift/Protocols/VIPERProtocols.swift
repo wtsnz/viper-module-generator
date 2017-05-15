@@ -15,7 +15,7 @@ protocol VIPERViewControllerProtocol: class {
     // PRESENTER -> VIEW
 }
 
-protocol VIPERWireFrameProtocol: class {
+protocol VIPERWireframeProtocol: class {
         
     static func createVIPERModule() -> UIViewController
     
@@ -25,7 +25,7 @@ protocol VIPERWireFrameProtocol: class {
 protocol VIPERPresenterProtocol: class {
     weak var viewController: VIPERViewControllerProtocol? { get set }
     var interactor: VIPERInteractorInputProtocol? { get set }
-    var wireFrame: VIPERWireFrameProtocol? { get set }
+    var wireframe: VIPERWireframeProtocol? { get set }
     
     // VIEW -> PRESENTER
 }

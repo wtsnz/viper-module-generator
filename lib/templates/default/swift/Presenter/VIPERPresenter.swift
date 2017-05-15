@@ -13,7 +13,7 @@ class VIPERPresenter: VIPERPresenterProtocol {
     
     weak var viewController: VIPERViewControllerProtocol?
     var interactor: VIPERInteractorInputProtocol?
-    var wireFrame: VIPERWireFrameProtocol?
+    var wireframe: VIPERWireframeProtocol?
 
     deinit {
         print("Deinit \(self)")
