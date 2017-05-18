@@ -26,6 +26,7 @@ class VIPERWireframe: VIPERWireframeProtocol {
         interactor.localDataManager = localDataManager
         interactor.remoteDataManager = remoteDataManager
         remoteDataManager.remoteRequestHandler = interactor
+        localDataManager.localRequestHandler = interactor
         
         return viewController as! UIViewController
     }
